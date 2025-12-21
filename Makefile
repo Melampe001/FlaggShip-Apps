@@ -1,18 +1,35 @@
-# Makefile
+.PHONY: help get build test analyze format clean doctor
 
-# Targets for AI Logic
+help:
+	@echo "Tokyoapps - Available commands:"
+	@echo "  make get      - Get Flutter dependencies"
+	@echo "  make build    - Build APK and AAB"
+	@echo "  make test     - Run tests with coverage"
+	@echo "  make analyze  - Analyze code"
+	@echo "  make format   - Format code"
+	@echo "  make clean    - Clean build files"
+	@echo "  make doctor   - Run flutter doctor"
 
-train:
-	@echo "Training the model..."
+get:
+	flutter pub get
+
+build:
+	flutter build apk --release
+	flutter build appbundle --release
 
 test:
-	@echo "Running tests..."
+	flutter test --coverage
 
-lint:
-	@echo "Linting the code..."
+analyze:
+	flutter analyze --fatal-infos --fatal-warnings
 
-ci:
-	@echo "Running Continuous Integration..."
+format:
+	dart format .
 
-deply:
-	@echo "Deploying the application..."
+clean:
+	flutter clean
+	rm -rf build/
+	rm -rf .dart_tool/
+
+doctor:
+	flutter doctor -v
