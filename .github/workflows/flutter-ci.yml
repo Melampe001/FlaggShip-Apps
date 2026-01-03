@@ -1,0 +1,82 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.0'
+          channel: 'stable'
+      
+      - name: Get dependencies
+        run: flutter pub get
+      
+      - name: Analyze code
+        run: flutter analyze --fatal-infos --fatal-warnings
+      
+      - name: Check formatting
+        run: dart format --set-exit-if-changed .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.0'
+      
+      - name: Get dependencies
+        run: flutter pub get
+      
+      - name: Run tests
+        run: flutter test --coverage
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+          flags: flutter
+
+  build-android:
+    needs: [analyze, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.0'
+      
+      - name: Get dependencies
+        run: flutter pub get
+      
+      - name: Build APK
+        run: flutter build apk --release
+      
+      - name: Build App Bundle
+        run: flutter build appbundle --release
+      
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: tokyoapps-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+      
+      - name: Upload AAB
+        uses: actions/upload-artifact@v3
+        with:
+          name: tokyoapps-aab
+          path: build/app/outputs/bundle/release/app-release.aab

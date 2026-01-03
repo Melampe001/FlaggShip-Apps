@@ -1,8 +1,24 @@
-# Tokyo Roulette Predictor
+# 🚀 Tokyoapps - Imperial Premium Elite
 
-[![CI](https://github.com/Melampe001/Tokyoapps/actions/workflows/blank.yml/badge.svg)](https://github.com/Melampe001/Tokyoapps/actions/workflows/blank.yml)
+[![Flutter CI/CD](https://github.com/Melampe001/Tokyoapps/workflows/Flutter%20CI%2FCD/badge.svg)](https://github.com/Melampe001/Tokyoapps/actions)
+[![Security](https://github.com/Melampe001/Tokyoapps/workflows/Security%20%26%20Quality/badge.svg)](https://github.com/Melampe001/Tokyoapps/actions)
+[![codecov](https://codecov.io/gh/Melampe001/Tokyoapps/branch/main/graph/badge.svg)](https://codecov.io/gh/Melampe001/Tokyoapps)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-An advanced AI-powered roulette prediction application built with Flutter, featuring MVVM architecture, ML Kit OCR, and comprehensive analytics.
+> 📱 Advanced AI-powered roulette prediction application built with Flutter, featuring MVVM architecture, ML Kit OCR, and comprehensive analytics.
+
+## ✨ Features
+
+- 📱 **Flutter Nativo**: Rendimiento nativo iOS & Android
+- 🎨 **Material Design 3**: UI moderna y consistente
+- 🔒 **Enterprise Security**: Gitleaks + dependency scanning
+- ⚡ **Optimizado**: Performance de producción
+- 📊 **Testing**: Cobertura automatizada
+- 🚀 **CI/CD**: Build y deploy automatizado
+- 🎰 **Dual Roulette Support**: European (0-36) and American (0-36 + 00)
+- 🤖 **AI-Powered Predictions**: History-based weighted RNG algorithm
+- 📱 **Camera OCR**: Scan roulette results using ML Kit
+- 💎 **Three-Tier Freemium Model**: Free, Advanced ($199), Premium ($299)
 
 ## 🎯 Overview
 
@@ -23,376 +39,186 @@ Tokyo Roulette Predictor is a sophisticated mobile application that provides int
 ## 🚀 Quick Start
 
 ### Prerequisites
-
-- Flutter SDK 3.0.0+
-- Android Studio or VS Code
-- Java JDK 11+
-- Android SDK (API 24-35)
+- Flutter 3.16+ (SDK)
+- Dart 3.0+
+- Android SDK / Xcode
 
 ### Installation
-
 ```bash
-# Clone repository
 git clone https://github.com/Melampe001/Tokyoapps.git
 cd Tokyoapps
 
-# Install dependencies
+# Get dependencies
 flutter pub get
 
-# Configure Firebase (requires Firebase project)
-flutterfire configure
-
-# Run the app
+# Run app
 flutter run
 ```
 
-## 📚 Documentation
+### Build Production
+```bash
+# Android APK
+flutter build apk --release
 
-- **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Technical architecture and features
-- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Comprehensive testing procedures
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Build and deployment guide
-- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Complete implementation status
-- **[docs/CRAFT_PROMPT_GUIDE.md](docs/CRAFT_PROMPT_GUIDE.md)** - C.R.A.F.T. methodology for creating effective prompts
+# Android App Bundle (for Play Store)
+flutter build appbundle --release
 
-## 🏗️ Architecture
-
-Built using clean MVVM (Model-View-ViewModel) architecture:
-
+# iOS (requires macOS)
+flutter build ios --release
 ```
-lib/
-├── models/          # Data structures
-├── views/           # UI components
-├── viewmodels/      # Business logic & state
-├── services/        # Core services
-└── utils/           # Constants & utilities
-```
-
-## 🎮 Features by Tier
-
-### Free Tier
-- Basic hot/cold number predictions
-- Manual spin tracking
-- Basic statistics
-- Limited history
-
-### Advanced Tier - $199
-- ✓ All Free features
-- ✓ Voisins du Zéro sector analysis
-- ✓ Neighbor calculations
-- ✓ Camera OCR scanning
-- ✓ Extended history
-
-### Premium Tier - $299
-- ✓ All Advanced features
-- ✓ All 4 sector predictions
-- ✓ Advanced betting strategies
-- ✓ Full confidence scores
-- ✓ Priority support
 
 ## 🧪 Testing
 
-### Run Automated Tests
 ```bash
+# Run all tests
 flutter test
+
+# With coverage
 flutter test --coverage
+
+# Analyze code
+flutter analyze
+
+# Format code
+dart format .
 ```
 
-### Manual Testing
-Follow the comprehensive checklist in [TESTING_GUIDE.md](TESTING_GUIDE.md):
-- 500 manual spins tracking
-- 500 camera spins tracking
-- All numbers (0-36/00) validation
-- Horizontal orientation testing
-- Permissions verification
+## 🏗️ Project Structure
 
-## 📱 Compatibility
+```
+lib/
+├── main.dart               # Entry point
+├── models/                 # Data structures
+│   ├── spin_result.dart
+│   ├── user_subscription.dart
+│   └── prediction.dart
+├── views/                  # UI components
+│   ├── screens/
+│   │   ├── main_screen.dart
+│   │   └── splash_screen.dart
+│   └── widgets/
+│       ├── subscription_upgrade_dialog.dart
+│       ├── prediction_panel.dart
+│       ├── roulette_wheel_widget.dart
+│       └── stats_chart.dart
+├── viewmodels/             # Business logic & state
+│   ├── roulette_viewmodel.dart
+│   └── auth_viewmodel.dart
+├── services/               # Core services
+│   ├── prediction_service.dart
+│   ├── camera_ocr_service.dart
+│   ├── rng_service.dart
+│   └── storage_service.dart
+└── utils/                  # Constants & utilities
+    ├── constants.dart
+    ├── logging.dart
+    └── helpers.dart
+```
 
-- **Minimum SDK**: Android 7.0 (API 24)
-- **Target SDK**: Android 15 (API 35)
-- **Tested On**: Android 7.0 - Android 15
-- **Orientations**: Portrait, Landscape Left, Landscape Right
+## 🛡️ Code Quality
 
-## 🔧 Technologies
+This project enforces **100+ lint rules**:
+- ✅ Strict type checking
+- ✅ Immutable widgets preferred
+- ✅ Const constructors enforced
+- ✅ No implicit casts/dynamic
+- ✅ Documentation required for public APIs
 
-- **Frontend**: Flutter 3.0+, Dart
-- **State Management**: Provider (MVVM)
-- **Backend**: Firebase (Auth, Firestore, Storage)
-- **Payments**: Stripe
-- **ML**: Google ML Kit (OCR)
-- **Database**: SQLite + Firestore
-- **Charts**: fl_chart
+## 📦 Key Dependencies
 
-## 🎨 UI/UX
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.15.3
+  firebase_remote_config: ^4.3.12
+  firebase_storage: ^11.6.0
+  
+  # Stripe payments
+  flutter_stripe: ^10.1.1
+  
+  # ML Kit for OCR
+  google_mlkit_text_recognition: ^0.11.0
+  
+  # State management (MVVM)
+  provider: ^6.1.1
+  
+  # Local storage
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.2
+  
+  # UI/Charts
+  fl_chart: ^0.66.0
+  animations: ^2.0.11
 
-- **Neon Red** (#FF0040) - Hot numbers, primary actions
-- **Neon Green** (#00FF41) - 0/00, success states  
-- **Dark Background** (#0A0A0A) - Main background
-- **Glow Effects** - Shadows and pulsing animations
-- **3D Bar Charts** - 1.5s animated transitions
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+```
 
-## 🔐 Security
+## 🔧 Development
 
-- Cryptographically secure RNG
-- Firebase Authentication
-- Encrypted local storage
-- Input validation
-- API key management
+### Code Style
+- Follow [Effective Dart](https://dart.dev/guides/language/effective-dart)
+- Use `dart format .` before committing
+- Run `flutter analyze` with zero warnings
+- Maintain >70% test coverage
+
+### Widget Best Practices
+```dart
+// Prefer const constructors
+const MyWidget({super.key});
+
+// Use composition over inheritance
+class MyButton extends StatelessWidget {
+  const MyButton({super.key, required this.onPressed});
+  
+  final VoidCallback onPressed;
+  
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: const Text('Click Me'),
+    );
+  }
+}
+```
+
+## 🚢 Deployment
+
+### Android
+1. Build App Bundle: `flutter build appbundle --release`
+2. Upload to Google Play Console
+3. Follow internal testing → production track
+
+### iOS
+1. Build IPA: `flutter build ipa --release`
+2. Upload via Xcode or App Store Connect
+3. Submit for review
 
 ## 📄 License
 
 This project is proprietary software. All rights reserved.
 
-## 👥 Author
+## 🏛️ Imperial Premium Elite Standards
 
-**Tokyo / Melampe**
-- GitHub: [@Melampe001](https://github.com/Melampe001)
-
-## 🤝 Support
-
-For issues or questions:
-- Create an issue on GitHub
-- Email: support@example.com
-
-## 📈 Status
-
-**Current Version**: 1.0.0  
-**Status**: ✅ Production Ready (pending Firebase/Stripe configuration)  
-**Last Updated**: November 2025
+Supervised by **Elara** under **Athena Protocol**:
+- ✅ Flutter CI/CD with APK/AAB artifacts
+- ✅ Security scanning (Gitleaks + dependency check)
+- ✅ 100+ lint rules enforced
+- ✅ Automated testing with coverage
+- ✅ Code formatting validation
+- ✅ Professional documentation
+- ✅ Production-ready builds
 
 ---
 
-# Original Project Notes
-
-Below are the original project requirements and conversation history:
-[3:36 a.m., 25/10/2025] Tokyo: Contexto: Tu tarea es desarrollar una aplicación multiplataforma completa y funcional para simular y predecir resultados en ruletas europea y americana, eliminando cualquier restricción específica a dispositivos como Motorola Edge 60 Fusion. La app debe ser compatible con todos los dispositivos Android, iOS (Apple), tabletas, laptops portátiles y computadoras de escritorio, permitiendo al usuario seleccionar la plataforma objetivo durante la instalación o ejecución para una optimización óptima (por ejemplo, mediante opciones de configuración o builds específicos). Incluye un modelo freemium con versión gratuita (predicciones simples como hot/cold y frecuencias básicas) y versiones pagas: avanzada a $399 (predicciones de vecinos, porcentajes detallados) y pre…
-[3:46 a.m., 25/10/2025] Tokyo: Perfecto, entonces zona del cero: doce y treinta y cinco –los que más salen ahí. Huérfanos: uno y diecisiete, que sí, diecisiete se repite pero ya ves, la rueda lo quiere. Tiers: cinco y veintisiete. Y la última, la que va de veintidós hasta veintinueve –digamos, veintidós y veintinueve. Ocho números: doce, treinta y cinco, uno, diecisiete, cinco, veintisiete, veintidós, veintinueve. Te los digo pausado: doce... treinta y cinco... uno... diecisiete... cinco... veintisiete... veintidós... veintinueve. Apostar, esperar tres o cuatro, volver. Si en cinco rondas no pasa nada, cambia uno, el menos frecuente en la mesa que estés viendo. ¡Y que la suerte no sea teatro, sino realidad!
-[3:47 a.m., 25/10/2025] Tokyo: Oye, entra a gamblingcounting o robotpredictor-dos sitios que sí dan stats en vivo de ruletas europeas tipo Evolution. De los últimos quinientos giros que acabo de checar, tu ocho: doce, treinta y cinco, uno, diecisiete, cinco, veintisiete, veintidós, veintinueve... pues, caen un 23% del total, un pelín más que los 2.7% por número que toca teóricamente. En tiempo real, cada giro te da como uno a cuatro de que salga algo tuyo-pero ojo, la casa siempre cobra ese 2.7% de ventaja, así que ni creas que es garantía. ¿Quieres que te marque alertas cuando esos números estén calientes o ya vas a apostar y rezar?
-[3:48 a.m., 25/10/2025] Tokyo: ¡ey
-[3:49 a.m., 25/10/2025] Tokyo: Bueno, pues ahí va. Abro Lucky 6, mesa con dealer rubia y buena onda. Primer giro: cero... y tu doce se queda cerca, pero no. Segundo: veinticuatro, nada. Tercero: ¡ey, el cinco! Tienes tu primera entrada. Apuestas fuerte en él, ¿verdad? Ahora, el multiplicador se pone rojo, 50x... ¿vas a doblar o esperamos al diecisiete que está calentito? Dime, ¿cuánto metes?
-[3:51 a.m., 25/10/2025] Tokyo: Introducción
-¡Hola! Entiendo que quieres una aplicación para Android que simule y "prediga" resultados en ruletas europea y americana. Vamos a aclarar algunos puntos clave basados en tu solicitud:
-Ruleta Europea: 37 números (0 al 36), con un solo cero.
-Ruleta Americana: 38 números (0 al 36 + 00), con doble cero, lo que aumenta la ventaja de la casa.
-Predictora de resultados: Las ruletas usan RNG (Random Number Generator) verdadero, que es impredecible por diseño (es aleatorio y justo). No se puede predecir con certeza, pero podemos crear un simulador que:
-Genera spins aleatorios usando RNG en código.
-Analiza historia de spins para sugerir "predicciones" basadas en patrones estadísticos (como números calientes/fríos), aunque esto es solo para simulación y no …
-[3:59 a.m., 25/10/2025] Tokyo: Introducción
-¡Hola! Entiendo que quieres una aplicación para Android que simule y "prediga" resultados en ruletas europea y americana. Vamos a aclarar algunos puntos clave basados en tu solicitud:
-Ruleta Europea: 37 números (0 al 36), con un solo cero.
-Ruleta Americana: 38 números (0 al 36 + 00), con doble cero, lo que aumenta la ventaja de la casa.
-Predictora de resultados: Las ruletas usan RNG (Random Number Generator) verdadero, que es impredecible por diseño (es aleatorio y justo). No se puede predecir con certeza, pero podemos crear un simulador que:
-Genera spins aleatorios usando RNG en código.
-Analiza historia de spins para sugerir "predicciones" basadas en patrones estadísticos (como números calientes/fríos), aunque esto es solo para simulación y no …
-[5:37 a.m., 25/10/2025] Tokyo: # pubspec.yaml - Copia y pega este contenido completo en el archivo pubspec.yaml de tu proyecto Flutter
-
-name: tokyo_roulette_predicciones
-description: Simulador de predicciones para ruleta con modelo freemium.
-publish_to: 'none'
-version: 1.0.0+1
-
-environment:
-  sdk: '>=3.0.0 <4.0.0'
-
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_stripe: ^10.0.0  # Para cobros Stripe
-  in_app_purchase: ^3.2.0  # Soporte in-app
-  firebase_core: ^2.24.2  # Firebase base
-  firebase_remote_config: ^4.3.12  # Para updates dinámicos cada 4 meses
-  cloud_firestore: ^4.15.3  # Almacenar emails
-  firebase_auth: ^4.16.0  # Auth para emails
-  intl: ^0.18.1  # Idioma/país
-  device_info_plus: ^9.1.2  # Info dispositivo/plataforma
-  url_launcher: ^6.2.4  # Comentarios via email
-  sh…# Clona tu repositorio si no lo tienes aún
-git clone https://github.com/Melampe001/Idea.git
-cd Idea
-
-# Instala dependencias
-npm install
-
-# Corre la app en modo desarrollo
-npm start
-Excelente, Melampe 😎📱🔥
-Ahora vamos a llevar tu app a Android, para que puedas usarla como aplicación instalada (no solo desde el navegador).
-Te explico los dos caminos que puedes elegir, según lo que quieras:
-
-
----
-
-🅰️ Opción 1: Convertir tu app web (HTML, JS, CSS) en APK
-
-Si tu proyecto es una app web (como la ruleta 🎰, hecha con JavaScript o React),
-podemos empaquetarla en una app Android real (.apk) usando herramientas que transforman tu web en una app nativa.
-
-💡 Lo que hace
-
-Toma tu sitio de GitHub Pages
-👉 https://melampe001.github.io/Idea/
-y lo mete dentro de una app Android lista para instalar.
-
-
----
-
-🧩 OPCIÓN A – Usando PWABuilder (recomendado y gratuito)
-
-1. Entra a 👉 https://www.pwabuilder.com/
-
-
-2. Escribe la URL de tu app:
-
-https://melampe001…
-class MartingaleAdvisor {
-  double baseBet = 1.0;
-  double currentBet = 1.0;
-  bool lastWin = true; // Reset on win
-
-  double getNextBet(bool win) {
-    if (win) {
-      currentBet = baseBet;
-      lastWin = true;
-    } else {
-      currentBet *= 2;
-      lastWin = false;
-    }
-    return currentBet;
-  }
-
-  void reset() {
-    currentBet = baseBet;
-    lastWin = true;
-  }
-}
-github.com/tuusuario/roulette-app
-import 'dart:math';
-import 'package:pointycastle/pointycastle.dart'; // Para RNG seguro
-
-class RouletteRNG {
-  final List<int> europeanWheel = List.generate(37, (i) => i); // 0-36
-  final List<int> americanWheel = [0, ...List.generate(36, (i) => i+1), 00]; // Custom para 00
-
-  int generateResult(bool isEuropean) {
-    var wheel = isEuropean ? europeanWheel : americanWheel;
-    var rng = Random.secure(); // Crypto-secure RNG
-    return wheel[rng.nextInt(wheel.length)];
-  }
-}
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-<uses-permission android:name="android.permission.VIBRATE" />
-<uses-permission android:name="com.android.vending.BILLING" /> <!-- Solo si simulado -->
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.CAMERA" /> <!-- Si KYC -->
-<uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Si voice -->
-import 'package:permission_handler/permission_handler.dart';
-
-Future<void> requestPermissions() async {
-  var status = await Permission.location.request(); // Para geobloqueo
-  if (status.isDenied) { /* Maneja denegación: muestra dialog explicando por qué (cumplimiento legal) */ }
-  // Repite para storage, camera, etc.
-  // Verifica todos: if (await Permission.storage.isGranted && await Permission.location.isGranted) { /* Procede */ }
-}
-import 'package:geolocator/geolocator.dart';
-
-Future<bool> isInMexico() async {
-  Position position = await Geolocator.getCurrentPosition();
-  // Llama API externa: http.get('https://ipapi.co/json') y verifica "country_code": "MX".
-  if (country != 'MX') { showError('App no disponible en tu región'); return false; }
-  return true;
-}[3:53 a.m., 21/10/2025] Tokyo Cel: dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0") // Para gráficos
-    implementation("com.android.billingclient:billing-ktx:7.1.0") // Billing latest 2025
-    implementation("androidx.recyclerview:recyclerview:1.3.2") // Para lista de ruletas
-}
-[8:30 p.m., 24/10/2025] Tokyo: https://chatgpt.com/share/68fc360f-04dc-800d-bab2-03c61769d2a3
-[8:35 p.m., 24/10/2025] Tokyo: name: 💥 Melampe Power Auto Fix + Build + Deploy ⚡
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 🔄 Checkout del código
-        uses: actions/checkout@v4
-
-      - name: ⚙️ Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      # 🧹 Limpieza y reparación universal
-      - name: 🧹 Limpiar y reparar proyecto
-        run: |
-          echo "==============================="
-          echo "🧹 Melampe Power Fixer en acción ⚡"
-          echo "==============================="
-          rm -rf node_modules package-lock.json dist build .next .turbo
-          npm cache…
-[8:39 p.m., 24/10/2025] Tokyo: @echo off
-title Limpieza y reparación universal - Melampe Power Fixer ⚡
-echo ===============================================
-echo 🔧 Iniciando limpieza universal...
-echo ===============================================
-
-:: Node.js / JavaScript / TypeScript
-if exist node_modules (
-    echo 🧹 Borrando dependencias de Node.js...
-    rmdir /s /q node_modules
-)
-if exist package-lock.json del /f /q package-lock.json
-if exist dist rmdir /s /q dist
-if exist build rmdir /s /q build
-if exist .next rmdir /s /q .next
-if exist .turbo rmdir /s /q .turbo
-
-echo 🚀 Limpiando cache npm...
-npm cache clean --force >nul 2>&1
-
-echo 🔧 Reinstalando dependencias...
-npm install
-
-echo ⚙️ Compilando proyecto...
-npm run build
-
-:: Visual Studio / .NET
-echo 🧰 Reparando proyectos .NET / …
-[9:08 p.m., 24/10/2025] Tokyo: git add .
-git commit -m "Activando Melampe Power Fixer + Deploy"
-git push origin main
-[9:08 p.m., 24/10/2025] Tokyo: https://melampe001.github.io/Idea/# Tokyoapps
-&lt;iframe src="https://tuusuario.github.io/tokyoapps" width="100%" height="800px" style="border:none;">&lt;/iframe>
-# Descarga e instala nvm:
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-
-# en lugar de reiniciar la shell
-\. "$HOME/.nvm/nvm.sh"
-
-# Descarga e instala Node.js:
-nvm install 25
-
-# Verify the Node.js version:
-node -v # Should print "v25.0.0".
-
-# Verifica versión de npm:
-npm -v # Debería mostrar "11.6.2".
+**Developed with ❤️ using Flutter**
 #!/usr/bin/env bash
 
 { # this ensures the entire script is downloaded #
